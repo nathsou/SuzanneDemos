@@ -1,0 +1,39 @@
+{
+  "name": "suzanne-demos",
+  "version": "0.0.1",
+  "description": "Suzanne.js usage examples",
+  "scripts": {
+    "start": "webpack-dev-server --mode development -d",
+    "build": "webpack --mode production",
+    "watch": "webpack -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "file-loader": "^2.0.0",
+    "ts-loader": "^5.2.1",
+    "typescript": "^3.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "keywords": [
+    "Suzanne",
+    "3D",
+    "Software",
+    "Renderer",
+    "Canvas",
+    "CPU"
+  ],
+  "author": "Nathan Soufflet",
+  "license": "MIT",
+  "dependencies": {
+    "@types/dat.gui": "^0.7.2",
+    "@types/node": "^10.11.7",
+    "dat.gui": "^0.7.3",
+    "suzanne": "^0.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nathsou/SuzanneDemos.git"
+  }
+}
