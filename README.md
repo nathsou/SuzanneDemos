@@ -4,4 +4,6 @@ This repository provides examples of how one would use [suzanne](https://github.
 
 ## Demos
 
-- [Phong shading with .obj models](https://nathsou.github.io/SuzanneDemos/dist/)
+- [Phong shading .obj models](https://nathsou.github.io/SuzanneDemos/dist/playground.html)
+- [Triangle](https://nathsou.github.io/SuzanneDemos/dist/webviewer.html#triangle)
+- [Low Poly Chrome Suzanne](https://nathsou.github.io/SuzanneDemos/dist/webviewer.html#suzanne)

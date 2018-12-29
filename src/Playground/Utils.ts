@@ -41,5 +41,4 @@ export namespace TextureLoader {
             img.src = source;
         });
     }
-
 }

@@ -35,13 +35,21 @@ export default class Main {
         show_texture: false,
         rotate: true,
         per_frag: false,
-        angle: Math.PI / 2
+        angle: 0
     };
 
     constructor() {
 
         const target = new CanvasRenderingTarget();
         document.body.appendChild(target.domElement);
+
+        // style
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        target.domElement.style.width = '100%';
+        target.domElement.style.height = '100%';
+        target.domElement.style.display = 'block';
+
         this.cnv = new Context(window.innerWidth, window.innerHeight, target);
 
         window.addEventListener('resize', () => {
@@ -136,7 +144,7 @@ export default class Main {
             }
         };
 
-        this.setModel(models.suzanne).then(async () => {
+        this.setModel(models[this.params.model]).then(async () => {
             await this.initUniforms();
             this.initGUI();
             this.start();
