@@ -31,9 +31,9 @@ function saveBitmap(bitmap: Promise<Bitmap>, path: string) {
 const width = 800;
 const height = 600;
 
-const demos: { [key: string]: Promise<Bitmap> } = {
-    'triangle': Triangle.default(width, height),
-    'suzanne': ModelRenderer.default(readFileSync(`dist/res/models/suzanne.obj`).toString('utf-8'), width, height)
+const demos: { [key: string]: () => Promise<Bitmap> } = {
+    'triangle': () => Triangle.default(width, height),
+    'suzanne': () => ModelRenderer.default(readFileSync(`dist/res/models/suzanne.obj`).toString('utf-8'), width, height)
 };
 
 inquirer.prompt([{
@@ -44,7 +44,7 @@ inquirer.prompt([{
     name: 'demo'
 }]).then(async (answers: { [key: string]: string }) => {
     const demo = answers.demo;
-    await saveBitmap(demos[demo], `${demo}.png`);
+    await saveBitmap(demos[demo](), `${demo}.png`);
     console.info(`File saved to ${demo}.png`);
 });
 
@@ -72,23 +72,3 @@ inquirer.prompt([{
 //         }
 //     });
 // }
-
-// const width = 800;
-// const height = 600;
-
-// const demos: { [key: string]: () => Promise<Bitmap> } = {
-//     'triangle': () => Triangle.default(width, height),
-//     'suzanne': () => ModelRenderer.default(readFileSync(`dist/res/models/suzanne.obj`).toString('utf-8'), width, height)
-// };
-
-// inquirer.prompt([{
-//     type: 'list',
-//     message: 'Choose a demo to run',
-//     choices: Object.keys(demos),
-//     default: 0,
-//     name: 'demo'
-// }]).then(async (answers: { [key: string]: string }) => {
-//     const demo = answers.demo;
-//     await saveBitmap(demos[demo](), `${demo}.png`);
-//     console.info(`File saved to ${demo}.png`);
-// });
